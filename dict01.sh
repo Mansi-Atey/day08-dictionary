@@ -1,69 +1,69 @@
 #!/bin/bash
-declare -A diceRoll
-diceRoll[oneCount]=0
-diceRoll[twoCount]=0
-diceRoll[threeCount]=0
-diceRoll[fourCount]=0
-diceRoll[fiveCount]=0
-diceRoll[fiveCount]=0
- maxC=10
-while [ ${diceRoll[onecount]} -lt $maxC ]
+declare -A record
+JanC=0
+FebC=0
+MarC=0
+AprC=0
+MayC=0
+JunC=0
+JulC=0
+AugC=0
+SeptC=0
+OctC=0
+NovC=0
+DeceC=0
+for ((i=1;i<=50;i++))
 do
- rndNum=$((1+$RANDOM%6)) 
-  if [ $rndNum -eq 1 ]
+ rndNum=$((1+$RANDOM%12))
+if [ $rndNum -eq 1 ]
 then
-  diceRoll[oneCount]=$((${diceRoll[oneCount]}+1))
+   JanC=$(($JanC+1))
+   record["January"]=$JanC
 elif [ $rndNum -eq 2 ]
-then
-  diceRoll[twoCount]=$((${diceRoll[twoCount]}+1))
-elif [ $rndNum -eq 3 ]
-then
-  diceRoll[threeCount]=$((${diceRoll[threeCount]}+1))
-elif [ $rndNum -eq 4 ]
-then
-  diceRoll[fourCount]=$((${diceRoll[fourCount]}+1))
-elif [ $rndNum -eq 5 ]
-then
-  diceRoll[fiveCount]=$((${diceRoll[fiveCount]}+1))
-elif [ $rndNum -eq 6 ]
-then
-  diceRoll[sixCount]=$((${diceRoll[sixCount]}+1))
-
-fi
+ then
+ FebC=$(($FebC+1))
+ record["February"]=$FebC
+elif [ $rndNum -eq 2 ]
+ then
+ FebC=$(($MarC+1))
+ record["March"]=$MarC
+elif [ $rndNum -eq 2 ]
+ then
+ FebC=$(($AprC+1))
+ record["April"]=$AprC
+elif [ $rndNum -eq 2 ]
+ then
+ FebC=$(($MayC+1))
+ record["May"]=$MayC
+elif [ $rndNum -eq 2 ]
+ then
+ FebC=$(($JunC+1))
+ record["June"]=$JunC
+elif [ $rndNum -eq 2 ]
+ then
+ FebC=$(($JulC+1))
+ record["July"]=$JulC
+elif [ $rndNum -eq 2 ]
+ then
+ FebC=$(($AugC+1))
+ record["August"]=$AugC
+elif [ $rndNum -eq 2 ]
+ then
+ FebC=$(($SeptC+1))
+ record["September"]=$SeptC
+elif [ $rndNum -eq 2 ]
+ then
+ FebC=$(($OctC+1))
+ record["October"]=$OctC
+elif [ $rndNum -eq 2 ]
+ then
+ FebC=$(($NovC+1))
+ record["November"]=$NovC
+elif [ $rndNum -eq 2 ]
+ then
+ FebC=$(($DeceC+1))
+ record["December"]=$DeceC
+ fi
 done
- echo ${diceRoll[@]}
-max=-999
-min=999
-count=0
-for i in "${diceRoll[@]}"
-do
-   count1=1
-   count2=1
-if [ $i -gt $max ]
-then
- max=$i
- for j in "${diceRoll[@]}"
-do
- if [ $count2 -eq $count ]
- then
-  maxNum=$j
-fi
-count2=$(($count2+1))
- done
-fi
- if [ $i -lt $min ]
-then
- min=$i
-for k in "${!diceRoll[@]}"
-do 
- if [ $count1 -eq $count ]
- then
- minNum=$k
-fi
-count1=$(($count1+1))
- done
-fi
-count=$(($count+1))
- done
-echo $max $maxNum
-echo $min $minNum
+echo ${!record[@]}
+echo ${record[@]}
